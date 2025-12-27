@@ -1,16 +1,248 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <title>Placeholder – RU</title>
-</head>
-<body>
-  <h1>Русский Placeholder</h1>
-  <p>Это русская страница-заглушка.</p>
-  <nav>
-    <a href="../en/">EN</a> |
-    <a href="../pl/">PL</a> |
-    <a href="../ru/">RU</a>
-  </nav>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Ана и Мати — Свадебный сайт (Скоро)</title>
+
+    <style>
+      :root {
+        --bg1: #fff7f2;
+        --bg2: #f4fbff;
+        --card: #ffffffcc;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --accent: #b76e79;
+        --accent2: #2f6f7a;
+        --shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+        --radius: 22px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            1000px 500px at 15% 10%,
+            #ffe9df 0%,
+            transparent 55%
+          ),
+          radial-gradient(800px 450px at 85% 20%, #e7f7ff 0%, transparent 55%),
+          linear-gradient(180deg, var(--bg1), var(--bg2));
+        overflow: hidden;
+      }
+      .wrap {
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .card {
+        width: min(560px, 100%);
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(229, 231, 235, 0.8);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .top {
+        padding: 20px 18px 12px;
+        text-align: center;
+      }
+      .langbar {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+      .langbar a {
+        text-decoration: none;
+        color: var(--muted);
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(229, 231, 235, 0.85);
+        background: rgba(255, 255, 255, 0.55);
+      }
+      .langbar a[aria-current="page"] {
+        color: var(--text);
+        border-color: rgba(183, 110, 121, 0.35);
+        box-shadow: 0 8px 18px rgba(183, 110, 121, 0.12);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(183, 110, 121, 0.25);
+        font-size: 13px;
+        color: var(--muted);
+        margin: 4px 0 12px;
+        background: rgba(255, 255, 255, 0.55);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      h1 {
+        margin: 8px 0;
+        font-size: clamp(26px, 6vw, 38px);
+        letter-spacing: -0.02em;
+      }
+      .amp {
+        font-family: serif;
+        color: var(--accent2);
+        padding: 0 6px;
+      }
+      .sub {
+        max-width: 44ch;
+        margin: 0 auto;
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .content {
+        padding: 14px 16px 18px;
+        display: grid;
+        gap: 10px;
+      }
+      .panel {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 16px;
+        padding: 12px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        border: 1px solid rgba(229, 231, 235, 0.7);
+      }
+      .icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(183, 110, 121, 0.15);
+        font-size: 18px;
+        flex: 0 0 auto;
+      }
+      .panel h2 {
+        margin: 0 0 2px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .panel p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+      .cta {
+        margin-top: 4px;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px dashed rgba(183, 110, 121, 0.35);
+        text-align: center;
+        font-size: 14px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.55);
+      }
+      .footer {
+        padding: 10px 0 14px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      @media (min-width: 680px) {
+        .content {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cta {
+          grid-column: 1 / -1;
+        }
+        .top {
+          padding: 22px 26px 12px;
+        }
+        .content {
+          padding: 16px 22px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <main class="card" role="main" aria-label="Свадебный сайт — заглушка">
+        <header class="top">
+          <nav class="langbar" aria-label="Язык">
+            <a href="../en/">EN</a>
+            <a href="../pl/">PL</a>
+            <a href="../ru/" aria-current="page">RU</a>
+          </nav>
+
+          <div class="badge">
+            <span class="dot" aria-hidden="true"></span>Сайт скоро будет готов…
+          </div>
+
+          <h1>Ana <span class="amp">&amp;</span> Mati</h1>
+
+          <p class="sub">
+            Мы готовим наш свадебный сайт. Подробности появятся совсем скоро.
+          </p>
+        </header>
+
+        <section class="content" aria-label="Коротко">
+          <div class="panel">
+            <div class="icon" aria-hidden="true">📝</div>
+            <div>
+              <h2>RSVP</h2>
+              <p>Информация о подтверждении участия появится скоро.</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="icon" aria-hidden="true">📍</div>
+            <div>
+              <h2>Место</h2>
+              <p>Локация и как добраться — совсем скоро.</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="icon" aria-hidden="true">🗓️</div>
+            <div>
+              <h2>Расписание</h2>
+              <p>Тайминг дня и ключевые моменты будут здесь.</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="icon" aria-hidden="true">🧳</div>
+            <div>
+              <h2>Путешествие</h2>
+              <p>Советы по жилью и дороге для гостей появятся позже.</p>
+            </div>
+          </div>
+
+          <div class="cta">Спасибо, что заглянули — возвращайтесь позже 💍</div>
+        </section>
+
+        <footer class="footer">© Ana &amp; Mati</footer>
+      </main>
+    </div>
+  </body>
 </html>

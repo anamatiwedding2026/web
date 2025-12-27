@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Redirecting…</title>
-  <meta name="robots" content="noindex, nofollow">
-  <script>
-    (function () {
-      const supported = ["en", "pl", "ru"];
-      const fallback = "en";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        const supported = ["en", "pl", "ru"];
+        const fallback = "en";
 
-      const lang = navigator.language || navigator.userLanguage;
-      const shortLang = lang ? lang.split("-")[0].toLowerCase() : fallback;
-      const target = supported.includes(shortLang) ? shortLang : fallback;
+        const lang = navigator.language || navigator.userLanguage || fallback;
+        const shortLang = String(lang).split("-")[0].toLowerCase();
+        const target = supported.includes(shortLang) ? shortLang : fallback;
 
-      window.location.replace("./" + target + "/");
-    })();
-  </script>
-</head>
-<body>
-  <p>Redirecting…</p>
-  <noscript>
-    <p><a href="./en/">Continue in English</a></p>
-  </noscript>
-</body>
+        window.location.replace("./" + target + "/");
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+    <noscript>
+      <p>
+        JavaScript is disabled. Please choose:
+        <a href="./en/">English</a> · <a href="./pl/">Polski</a> ·
+        <a href="./ru/">Русский</a>
+      </p>
+    </noscript>
+  </body>
 </html>
