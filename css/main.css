@@ -1,0 +1,955 @@
+/* =========================
+   Font
+   ========================= */
+@font-face {
+  font-family: "AnticDidone";
+  src: url("../assets/fonts/AnticDidone-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   Base / Reset
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "AnticDidone", ui-serif, Georgia, serif;
+  line-height: 1.5;
+  color: #2f4a3d;
+  background: #efe9e2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+
+/* =========================
+   Variables
+   ========================= */
+:root {
+  --peach: #efe9e2;
+  --ink: #2f4a3d;
+
+  --container-max: 520px;
+  --px: clamp(18px, 4vw, 32px);
+
+  --shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+
+  --hero-cta-shift: clamp(10px, 6vw, 56px);
+
+  --hero-cta-safe: 300px; /* reserved space so title never overlaps CTA */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-max: 720px;
+  }
+}
+
+@media (max-height: 680px) {
+  :root {
+    --hero-cta-safe: 340px;
+  }
+}
+
+@media (max-height: 580px) {
+  :root {
+    --hero-cta-safe: 380px;
+  }
+}
+
+/* =========================
+   Layout
+   ========================= */
+.page {
+  min-height: 100svh;
+  background: var(--peach);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+.section--hero {
+  padding: 0;
+}
+
+/* Dark section helper */
+.section--dark {
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #2f4a3d, #385243);
+}
+
+/* =========================
+   Accessibility
+   ========================= */
+.skip-link {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+  z-index: 999;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  background: var(--peach);
+}
+
+.hero__frame {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--container-max);
+  min-height: 100svh;
+  overflow: hidden;
+
+  background-image: url("../assets/images/1.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+@media (min-width: 768px) {
+  .hero__frame {
+    background-position: center center;
+  }
+}
+
+.hero__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.1) 46%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+}
+
+.locale {
+  position: relative;
+  z-index: 1;
+  padding: 28px var(--px) 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.locale__link {
+  text-decoration: none;
+}
+.locale__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.locale__sep {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding-left: var(--px);
+  padding-right: var(--px);
+
+  /* top placement stays */
+  padding-top: clamp(56px, 10vh, 120px);
+
+  /* reserve CTA zone */
+  padding-bottom: var(--hero-cta-safe);
+
+  min-height: calc(100svh - 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(44px, 9vw, 78px);
+  line-height: 1.02;
+}
+
+.hero__name {
+  display: block;
+}
+
+.hero__amp {
+  display: block;
+  font-size: clamp(48px, 11vw, 86px);
+  line-height: 1;
+  margin: 10px 0;
+  letter-spacing: 0.04em;
+}
+
+.hero__cta {
+  position: absolute;
+  z-index: 1;
+
+  /* off-center like the mockup */
+  left: calc(var(--px) + var(--hero-cta-shift));
+
+  /* stable vertical anchor */
+  bottom: clamp(160px, 30vh, 340px);
+
+  text-align: left;
+}
+
+.hero__date {
+  font-size: clamp(18px, 4.2vw, 24px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.95;
+  margin-bottom: 18px;
+}
+
+.hero__rsvp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 14px 22px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.95);
+  background: transparent;
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hero__rsvp:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+.hero__rsvp:active {
+  transform: translateY(1px);
+}
+
+@media (max-height: 680px) {
+  .hero__title {
+    font-size: clamp(38px, 8vw, 66px);
+  }
+  .hero__amp {
+    font-size: clamp(42px, 9.5vw, 72px);
+  }
+}
+
+/* =========================
+   SECTION 2 — Welcome
+   ========================= */
+
+.section--welcome {
+  background: var(--peach);
+}
+
+/* Floral background starts immediately after hero */
+.welcome {
+  background-color: var(--peach);
+  background-image: url("../assets/images/peachFloralPattern.png");
+  background-repeat: repeat;
+  background-size: 900px auto;
+
+  /* This creates the top space filled with pattern */
+  padding-top: 72px;
+  padding-bottom: 0;
+}
+
+/* Card spacing moved here */
+.welcome__card {
+  max-width: min(640px, calc(var(--container-max) - 44px));
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(47, 74, 61, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
+  padding: clamp(26px, 5vw, 40px);
+  text-align: center;
+}
+
+.welcome__title {
+  margin: 0 0 18px;
+  font-weight: 400;
+  color: var(--ink);
+  font-size: clamp(40px, 7.8vw, 60px);
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+}
+
+.welcome__p {
+  margin: 0;
+  color: rgba(47, 74, 61, 0.9);
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.55;
+}
+
+.welcome__p + .welcome__p {
+  margin-top: 24px;
+}
+
+.welcome__sig {
+  margin-top: 34px;
+  color: rgba(47, 74, 61, 0.88);
+  font-size: clamp(18px, 3.8vw, 22px);
+  line-height: 1.5;
+}
+
+.welcome__names {
+  margin-top: 6px;
+  font-size: clamp(20px, 4.2vw, 26px);
+}
+
+.welcome__carousel {
+  max-width: var(--container-max);
+  margin: 26px auto 0;
+  overflow: hidden;
+}
+
+.welcome__track {
+  display: flex;
+  width: 100%;
+}
+
+.welcome__slide {
+  flex: 0 0 33.3333%;
+  aspect-ratio: 1 / 1.08;
+  overflow: hidden;
+}
+
+.welcome__ph {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+      135deg,
+      rgba(47, 74, 61, 0.1),
+      rgba(47, 74, 61, 0.02)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(47, 74, 61, 0.1) 0 10px,
+      rgba(47, 74, 61, 0.04) 10px 20px
+    );
+  color: rgba(47, 74, 61, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Splide – Welcome carousel
+   ========================= */
+
+/* Welcome carousel: 3-up strip like prototype */
+.welcome__carousel {
+  max-width: var(--container-max);
+  margin: 26px auto 0;
+  overflow: hidden; /* clean edges */
+}
+
+/* Each slide fills its cell; no padding/gutters */
+.welcome__carousel .splide__slide {
+  line-height: 0; /* prevents tiny gaps under images */
+}
+
+.welcome__carousel img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  /* prototype-like crop */
+  aspect-ratio: 1 / 1.08;
+}
+
+/* No arrows/pagination */
+.welcome__carousel .splide__arrow,
+.welcome__carousel .splide__pagination {
+  display: none !important;
+}
+
+/* =========================
+   SECTION 3 — Where & How
+   Uses: ../assets/images/greenFloralPattern.png
+   ========================= */
+
+.section--where {
+  background: var(--peach); /* gutter color */
+}
+
+/* Pattern wrapper */
+.where {
+  background-color: #2f4a3d;
+  background-image: url("../assets/images/greenFloralPattern.png");
+  background-repeat: repeat;
+  background-size: 900px auto;
+  padding: 80px 0 96px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Section title */
+.where__title {
+  margin: 0 0 64px;
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(44px, 8vw, 64px);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+/* Reusable content block */
+.where__block {
+  text-align: center;
+}
+
+.where__block + .where__block {
+  margin-top: 96px;
+}
+
+/* Image wrapper — scaled & cropped like mockup */
+.where__image-wrap {
+  width: min(78%, 520px); /* scales on mobile, caps nicely */
+  margin: 0 auto 32px;
+
+  aspect-ratio: 16 / 10; /* landscape crop similar to mockup */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Image fills wrapper and crops */
+.where__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Subtitle */
+.where__subtitle {
+  margin: 0 0 18px;
+  font-weight: 400;
+  font-size: clamp(22px, 4.5vw, 28px);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Text */
+.where__text {
+  margin: 0;
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.where__text + .where__text {
+  margin-top: 16px;
+}
+
+/* Address line */
+.where__address {
+  margin-top: 22px;
+  font-size: clamp(17px, 3.7vw, 21px);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================
+   SECTION 4 — Schedule
+   ========================= */
+
+.section--schedule {
+  background: var(--peach);
+}
+
+/* Keep it clean and centered like the mock */
+.schedule {
+  padding-top: 84px;
+  padding-bottom: 84px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.schedule__head {
+  margin-bottom: 44px;
+
+  /* two-row grid to bias alignment safely */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
+
+  /* subtle inner offsets that never exceed container */
+  padding-left: clamp(0px, 3vw, 18px);
+  padding-right: clamp(0px, 3vw, 18px);
+}
+
+/* Title: slightly left-biased */
+.schedule__title {
+  justify-self: start;
+  text-align: left;
+
+  margin: 0;
+  font-weight: 400;
+  line-height: 0.95;
+  font-size: clamp(52px, 10vw, 74px);
+  letter-spacing: 0.02em;
+}
+
+.schedule__title-main {
+  display: inline-block;
+}
+
+.schedule__title-of {
+  display: inline-block;
+  margin: 0 0.18em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transform: translateY(0.06em);
+}
+
+/* Date: slightly right-biased */
+.schedule__date {
+  justify-self: end;
+  text-align: right;
+
+  margin-top: 16px;
+  font-size: 14px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(47, 74, 61, 0.85);
+}
+
+/* Divider list */
+.schedule__list {
+  border-top: 3px solid rgba(47, 74, 61, 0.55);
+  margin: 0 auto;
+}
+
+/* Row layout: time left, event right */
+.schedule__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 22px 0;
+  border-bottom: 3px solid rgba(47, 74, 61, 0.55);
+}
+
+.schedule__time {
+  font-size: clamp(18px, 4.2vw, 22px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(47, 74, 61, 0.9);
+  white-space: nowrap;
+}
+
+.schedule__event {
+  font-size: clamp(16px, 3.6vw, 20px);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-align: right;
+  color: rgba(47, 74, 61, 0.9);
+}
+
+/* =========================
+   SECTION 5 — Memories
+   Uses: ../assets/images/greenFloralPattern.png
+   ========================= */
+
+.section--memories {
+  background: var(--peach); /* gutters */
+}
+
+/* Pattern wrapper */
+.memories {
+  background-color: #2f4a3d;
+  background-image: url("../assets/images/greenFloralPattern.png");
+  background-repeat: repeat;
+  background-size: 900px auto;
+  padding: 88px 0 96px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+}
+
+.memories__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(52px, 10vw, 74px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.memories__lead {
+  margin: 22px auto 0;
+  max-width: 34ch;
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Reusable block */
+.memories__block {
+  margin-top: 56px;
+}
+
+.memories__block + .memories__block {
+  margin-top: 86px;
+}
+
+/* Image: scaled + cropped like Section 3 mock */
+.memories__image-wrap {
+  width: min(78%, 520px);
+  margin: 0 auto 30px;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.memories__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.memories__subtitle {
+  margin: 0 0 18px;
+  font-weight: 400;
+  font-size: clamp(22px, 4.5vw, 28px);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.memories__text {
+  margin: 0;
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.memories__text + .memories__text {
+  margin-top: 16px;
+}
+
+/* =========================
+   SECTION 6 — More information
+   ========================= */
+
+.section--info {
+  background: var(--peach);
+}
+
+.info {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  text-align: center;
+  color: var(--ink);
+}
+
+/* Main title */
+.info__title {
+  margin: 0 0 72px;
+  font-weight: 400;
+  font-size: clamp(48px, 10vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+/* Blocks */
+.info__block + .info__block {
+  margin-top: 72px;
+}
+
+/* Subtitles like mockup */
+.info__subtitle {
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: clamp(22px, 4.5vw, 28px);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(47, 74, 61, 0.9);
+}
+
+/* Body text */
+.info__text {
+  margin: 0;
+  max-width: 34ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.6;
+  color: rgba(47, 74, 61, 0.88);
+}
+
+.info__text + .info__text {
+  margin-top: 16px;
+}
+
+/* =========================
+   SECTION 7 — RSVP + Contact
+   ========================= */
+
+.section--rsvp-contact {
+  background: var(--peach); /* side gutters */
+}
+
+/* ---------- RSVP ---------- */
+.rsvp {
+  background-color: #2f4a3d;
+  background-image: url("../assets/images/greenFloralPattern.png");
+  background-repeat: repeat;
+  background-size: 900px auto;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 84px 0 64px;
+  text-align: center;
+}
+
+.rsvp__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 78px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.rsvp__text {
+  margin: 20px auto 0;
+  max-width: 36ch;
+  font-size: clamp(18px, 3.9vw, 22px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.rsvp__em {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.rsvp__btn {
+  margin: 28px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(100%, 520px);
+  padding: 18px 18px;
+
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+
+  font-size: clamp(18px, 4.2vw, 24px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rsvp__btn:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.rsvp__btn:active {
+  transform: translateY(1px);
+}
+
+/* ---------- CONTACT ---------- */
+
+/* Set your contact background image here */
+:root {
+  --contact-bg: url("../assets/images/5.jpg");
+}
+
+/* ---------- CONTACT (framed, not full-bleed) ---------- */
+
+.contact {
+  /* green floral gutters */
+  background-color: #2f4a3d;
+  background-image: url("../assets/images/greenFloralPattern.png");
+  background-repeat: repeat;
+  background-size: 900px auto;
+
+  padding: 0;
+}
+
+/* Centered frame that stops growing after tablet breakpoint */
+.contact__frame {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--container-max);
+  min-height: 560px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Background image only inside the frame */
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.18),
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.32)
+    ),
+    var(--contact-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Content sits above bg, still constrained by container padding */
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 560px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-top: 72px;
+  padding-bottom: 38px;
+  padding-left: var(--px);
+  padding-right: var(--px);
+
+  text-align: center;
+}
+
+.contact__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 78px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+/* Two columns near the bottom */
+.contact__grid {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: end;
+  padding-bottom: 24px;
+}
+
+.contact__col {
+  text-align: left;
+}
+
+.contact__col--right {
+  text-align: right;
+}
+
+.contact__role {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.contact__line {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.contact__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Stack on small screens */
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contact__col,
+  .contact__col--right {
+    text-align: left;
+  }
+}
+
+/* ---------- Bottom band + copyright ---------- */
+.rsvp-contact__footer {
+  height: 140px;
+  background: #2f4a3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Tablet polish */
+@media (min-width: 768px) {
+  .welcome {
+    padding-top: 90px;
+  }
+  .welcome__carousel {
+    margin-top: 30px;
+  }
+}
