@@ -144,7 +144,7 @@ a {
   min-height: 100svh;
   overflow: hidden;
 
-  background-image: url("../assets/images/1.JPG");
+  background-image: url("../assets/images/heroBackground.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -809,7 +809,7 @@ a {
 
 /* Set your contact background image here */
 :root {
-  --contact-bg: url("../assets/images/5.jpg");
+  --contact-bg: url("../assets/images/contactUs.jpg");
 }
 
 /* ---------- CONTACT (framed, not full-bleed) ---------- */
