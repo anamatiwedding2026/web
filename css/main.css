@@ -838,16 +838,15 @@ a {
    ========================= */
 
 .section--rsvp-contact {
-  background: var(--peach); /* side gutters */
-}
-
-/* ---------- RSVP ---------- */
-.rsvp {
   background-color: #2f4a3d;
   background-image: url("../assets/images/greenFloralPattern.jpg");
   background-repeat: repeat;
   background-size: 900px auto;
   color: rgba(255, 255, 255, 0.95);
+}
+
+/* ---------- RSVP ---------- */
+.rsvp {
   padding: 28px 0;
   text-align: center;
 }
@@ -915,12 +914,6 @@ a {
 /* ---------- CONTACT (framed, not full-bleed) ---------- */
 
 .contact {
-  /* green floral gutters */
-  background-color: #2f4a3d;
-  background-image: url("../assets/images/greenFloralPattern.jpg");
-  background-repeat: repeat;
-  background-size: 900px auto;
-
   padding: 0;
 }
 
