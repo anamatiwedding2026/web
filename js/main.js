@@ -39,21 +39,4 @@
       },
     }).mount();
   });
-
-  const isTelegram = /Telegram/i.test(navigator.userAgent);
-
-  if (isTelegram) {
-    document.addEventListener("click", (e) => {
-      const a = e.target.closest('a[target="_blank"][href]');
-      if (!a) return;
-
-      // ignore hash links (your smooth-scroll handler owns those)
-      const href = a.getAttribute("href");
-      if (!href || href.startsWith("#")) return;
-
-      e.preventDefault();
-      // open in same webview instead of Telegram’s “new tab”
-      window.location.assign(a.href);
-    });
-  }
 })();
