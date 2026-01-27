@@ -1,250 +1,456 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Ana i Mati — Strona ślubna (Wkrótce)</title>
+    <title>Anastasiya & Mateusz</title>
+    <meta name="description" content="Wedding website" />
 
-    <style>
-      :root {
-        --bg1: #fff7f2;
-        --bg2: #f4fbff;
-        --card: #ffffffcc;
-        --text: #1f2937;
-        --muted: #6b7280;
-        --accent: #b76e79;
-        --accent2: #2f6f7a;
-        --shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
-        --radius: 22px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        height: 100%;
-      }
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-          Arial, sans-serif;
-        color: var(--text);
-        background: radial-gradient(
-            1000px 500px at 15% 10%,
-            #ffe9df 0%,
-            transparent 55%
-          ),
-          radial-gradient(800px 450px at 85% 20%, #e7f7ff 0%, transparent 55%),
-          linear-gradient(180deg, var(--bg1), var(--bg2));
-        overflow: hidden;
-      }
-      .wrap {
-        min-height: 100svh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-      }
-      .card {
-        width: min(560px, 100%);
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(229, 231, 235, 0.8);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
-      .top {
-        padding: 20px 18px 12px;
-        text-align: center;
-      }
-      .langbar {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 10px;
-        font-size: 13px;
-      }
-      .langbar a {
-        text-decoration: none;
-        color: var(--muted);
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(229, 231, 235, 0.85);
-        background: rgba(255, 255, 255, 0.55);
-      }
-      .langbar a[aria-current="page"] {
-        color: var(--text);
-        border-color: rgba(183, 110, 121, 0.35);
-        box-shadow: 0 8px 18px rgba(183, 110, 121, 0.12);
-      }
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(183, 110, 121, 0.25);
-        font-size: 13px;
-        color: var(--muted);
-        margin: 4px 0 12px;
-        background: rgba(255, 255, 255, 0.55);
-      }
-      .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--accent);
-      }
-      h1 {
-        margin: 8px 0;
-        font-size: clamp(26px, 6vw, 38px);
-        letter-spacing: -0.02em;
-      }
-      .amp {
-        font-family: serif;
-        color: var(--accent2);
-        padding: 0 6px;
-      }
-      .sub {
-        max-width: 44ch;
-        margin: 0 auto;
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.5;
-      }
-      .content {
-        padding: 14px 16px 18px;
-        display: grid;
-        gap: 10px;
-      }
-      .panel {
-        background: rgba(255, 255, 255, 0.75);
-        border-radius: 16px;
-        padding: 12px;
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        border: 1px solid rgba(229, 231, 235, 0.7);
-      }
-      .icon {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        background: rgba(183, 110, 121, 0.15);
-        font-size: 18px;
-        flex: 0 0 auto;
-      }
-      .panel h2 {
-        margin: 0 0 2px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-      }
-      .panel p {
-        margin: 0;
-        font-size: 14px;
-        color: var(--muted);
-        line-height: 1.4;
-      }
-      .cta {
-        margin-top: 4px;
-        padding: 12px;
-        border-radius: 16px;
-        border: 1px dashed rgba(183, 110, 121, 0.35);
-        text-align: center;
-        font-size: 14px;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.55);
-      }
-      .footer {
-        padding: 10px 0 14px;
-        text-align: center;
-        font-size: 12px;
-        color: var(--muted);
-      }
-      @media (min-width: 680px) {
-        .content {
-          grid-template-columns: 1fr 1fr;
-        }
-        .cta {
-          grid-column: 1 / -1;
-        }
-        .top {
-          padding: 22px 26px 12px;
-        }
-        .content {
-          padding: 16px 22px 20px;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <script defer src="../js/main.js"></script>
   </head>
 
   <body>
-    <div class="wrap">
-      <main class="card" role="main" aria-label="Strona ślubna — placeholder">
-        <header class="top">
-          <nav class="langbar" aria-label="Język">
-            <a href="../en/">EN</a>
-            <a href="../pl/" aria-current="page">PL</a>
-            <a href="../ru/">RU</a>
-          </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-          <div class="badge">
-            <span class="dot" aria-hidden="true"></span>Strona wkrótce…
-          </div>
+    <div class="page">
+      <main id="main">
+        <!-- SECTION 1: HERO -->
+        <section id="s-hero" class="section section--hero" aria-label="Hero">
+          <!-- Full-width peach area (creates side gutters on desktop) -->
+          <div class="hero">
+            <!-- Centered "frame" that stops growing after tablet breakpoint -->
+            <div class="hero__frame">
+              <div class="hero__overlay" aria-hidden="true"></div>
 
-          <h1>Ana <span class="amp">&amp;</span> Mati</h1>
+              <!-- Locale selectors -->
+              <nav class="locale" aria-label="Language">
+                <a class="locale__link" href="../ru/index.html">RU</a>
+                <span class="locale__sep" aria-hidden="true">|</span>
+                <a class="locale__link" href="index.html" aria-current="page"
+                  >PL</a
+                >
+                <span class="locale__sep" aria-hidden="true">|</span>
+                <a class="locale__link" href="../en/index.html">ENG</a>
+              </nav>
 
-          <p class="sub">
-            Przygotowujemy naszą stronę ślubną. Szczegóły pojawią się wkrótce.
-          </p>
-        </header>
+              <div class="hero__content">
+                <h1 class="hero__title">
+                  <span class="hero__name">ANASTASIYA</span>
+                  <span class="hero__amp">&amp;</span>
+                  <span class="hero__name">MATEUSZ</span>
+                </h1>
+              </div>
 
-        <section class="content" aria-label="Szybkie informacje">
-          <div class="panel">
-            <div class="icon" aria-hidden="true">📝</div>
-            <div>
-              <h2>RSVP</h2>
-              <p>Informacje o potwierdzeniu przybycia pojawią się wkrótce.</p>
+              <!-- Anchored CTA -->
+              <div class="hero__cta">
+                <div class="hero__date">20.06.2026</div>
+                <a
+                  id="hero-rsvp"
+                  class="hero__rsvp"
+                  href="https://forms.gle/fbHBTNTv2u7xut4V7"
+                  role="button"
+                  target="_blank"
+                >
+                  RSVP
+                </a>
+              </div>
             </div>
-          </div>
-
-          <div class="panel">
-            <div class="icon" aria-hidden="true">📍</div>
-            <div>
-              <h2>Miejsce</h2>
-              <p>Lokalizacja oraz wskazówki dojazdu już niedługo.</p>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="icon" aria-hidden="true">🗓️</div>
-            <div>
-              <h2>Harmonogram</h2>
-              <p>Plan dnia i najważniejsze momenty pojawią się tutaj.</p>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="icon" aria-hidden="true">🧳</div>
-            <div>
-              <h2>Podróż</h2>
-              <p>Propozycje noclegów i wskazówki dla gości wkrótce.</p>
-            </div>
-          </div>
-
-          <div class="cta">
-            Dziękujemy za odwiedziny — zapraszamy wkrótce 💍
           </div>
         </section>
 
-        <footer class="footer">© Ana &amp; Mati</footer>
+        <!-- SECTION 2: WELCOME -->
+        <section
+          id="s-welcome"
+          class="section section--welcome"
+          aria-label="Welcome"
+        >
+          <div class="welcome">
+            <div class="container">
+              <!-- Narrower card than hero frame/container -->
+              <div class="welcome__card">
+                <h2 class="welcome__title">
+                  Cześć i witajcie na<br />naszej stronie ślubnej!
+                </h2>
+
+                <p class="welcome__p">To my, Anastasiya i Mateusz.</p>
+
+                <p class="welcome__p">
+                  Bardzo się cieszymy, że możemy zaprosić Was na nasz ślub i
+                  spędzić ten wyjątkowy dzień razem z Wami.
+                </p>
+
+                <p class="welcome__p">
+                  Na tej stronie znajdziecie wszystkie najważniejsze informacje
+                  dotyczące naszego ślubu.
+                </p>
+
+                <p class="welcome__p">
+                  Pamiętajcie proszę o potwierdzeniu obecności
+                  <a href="#hero-rsvp" class="link">RSVP</a>, a jeśli będziecie
+                  mieć pytania, śmiało do nas piszcie.
+                </p>
+
+                <div class="welcome__sig">
+                  <div>Z miłością,</div>
+                  <div class="welcome__names">
+                    Anastasiya &amp; Mateusz <span aria-hidden="true">💕</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="welcome__carousel splide" aria-label="Wedding photos">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide">
+                    <img
+                      src="../assets/images/carousel1.jpg"
+                      alt="Anastasiya & Mateusz photo 1"
+                    />
+                  </li>
+                  <li class="splide__slide">
+                    <img
+                      src="../assets/images/carousel2.jpg"
+                      alt="Anastasiya & Mateusz photo 2"
+                    />
+                  </li>
+                  <li class="splide__slide">
+                    <img
+                      src="../assets/images/carousel3.jpg"
+                      alt="Anastasiya & Mateusz photo 3"
+                    />
+                  </li>
+                  <li class="splide__slide">
+                    <img
+                      src="../assets/images/carousel4.jpg"
+                      alt="Anastasiya & Mateusz photo 4"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: WHERE & HOW -->
+        <section
+          id="s-where"
+          class="section section--where"
+          aria-label="Where and how"
+        >
+          <div class="where">
+            <div class="container">
+              <h2 class="where__title">Gdzie i jak dojechać</h2>
+
+              <!-- Block: Venue -->
+              <div class="where__block">
+                <div class="where__image-wrap">
+                  <img
+                    src="../assets/images/venue.jpg"
+                    alt="Wedding venue"
+                    class="where__image"
+                  />
+                </div>
+
+                <h3 class="where__subtitle">MIEJSCE</h3>
+
+                <p class="where__text">
+                  Świętujemy w
+                  <a
+                    href="https://stodolakultury.pl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                  >
+                    Stodoła Kultury
+                  </a>
+                  w Stawkach, około 60 km od Warszawy.
+                </p>
+
+                <p class="where__address">
+                  📍 Adres:
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Stawek+36,+05-317+Stawek,+Poland"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                  >
+                    Stawek 36, 05-317 Stawek
+                  </a>
+                </p>
+              </div>
+
+              <!-- Block: Transport -->
+              <div class="where__block">
+                <div class="where__image-wrap">
+                  <img
+                    src="../assets/images/transport.jpg"
+                    alt="Wedding transport"
+                    class="where__image"
+                  />
+                </div>
+
+                <h3 class="where__subtitle">TRANSPORT</h3>
+
+                <p class="where__text">
+                  Na miejscu dostępny jest parking dla gości. Zorganizujemy
+                  również autobusy z Warszawy i z powrotem.
+                </p>
+
+                <p class="where__text">
+                  Dajcie nam proszę znać w formularzu
+                  <a href="#hero-rsvp" class="link">RSVP</a>
+                  , jeśli będziecie potrzebować transportu.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: SCHEDULE -->
+        <section
+          id="s-schedule"
+          class="section section--schedule"
+          aria-label="Schedule of events"
+        >
+          <div class="container schedule">
+            <header class="schedule__head">
+              <h2 class="schedule__title">
+                <span class="schedule__title-main">Plan</span>
+                <span class="schedule__title-of">naszego</span>
+                <span class="schedule__title-main">dnia</span>
+              </h2>
+
+              <div class="schedule__date">20 CZERWCA 2026</div>
+            </header>
+
+            <div class="schedule__list" role="list">
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">4:00 PM</div>
+                <div class="schedule__event">FIRST LOOK</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">4:30 PM</div>
+                <div class="schedule__event">CEREMONIA</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">5:00 PM</div>
+                <div class="schedule__event">ŻYCZENIA I ZDJĘCIA</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">6:00 PM</div>
+                <div class="schedule__event">OBIAD</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">8:00 PM</div>
+                <div class="schedule__event">PIERWSZY TANIEC</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">9:30 PM</div>
+                <div class="schedule__event">TORT</div>
+              </div>
+
+              <div class="schedule__row" role="listitem">
+                <div class="schedule__time">11:30 PM</div>
+                <div class="schedule__event">OCZEPINY</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 5: MEMORIES -->
+        <section
+          id="s-memories"
+          class="section section--memories"
+          aria-label="Memories"
+        >
+          <div class="memories">
+            <div class="container">
+              <h2 class="memories__title">Wspomnienia</h2>
+
+              <p class="memories__lead">
+                Bardzo chcielibyśmy zobaczyć ten dzień Waszymi oczami 💛<br />
+                Róbcie tyle zdjęć i nagrań, ile tylko chcecie!
+              </p>
+
+              <!-- Block: Google Drive -->
+              <div class="memories__block">
+                <div class="memories__image-wrap">
+                  <img
+                    src="../assets/images/memories1.jpg"
+                    alt="Wedding memories - Google Drive"
+                    class="memories__image"
+                  />
+                </div>
+
+                <h3 class="memories__subtitle">GOOGLE DRIVE</h3>
+
+                <p class="memories__text">
+                  Swoje zdjęcia i filmy będziecie mogli dodać do naszego folderu
+                  Google Drive, do którego link znajdziecie poniżej.<br />
+                  <a
+                    href="https://drive.google.com/drive/folders/1RNPBQR5Wr36eeL0Tk0z7yS5XLYszEj-C?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                  >
+                    Google Drive Link</a
+                  >
+                </p>
+              </div>
+
+              <!-- Block: POV App -->
+              <div class="memories__block">
+                <div class="memories__image-wrap">
+                  <img
+                    src="../assets/images/memories2.jpg"
+                    alt="Wedding memories - POV app"
+                    class="memories__image"
+                  />
+                </div>
+
+                <h3 class="memories__subtitle">POV APP</h3>
+
+                <p class="memories__text">
+                  Podczas wesela chcemy korzystać z
+                  <a href="https://pov.camera/" class="link">aplikacji POV</a>
+                  do robienia zdjęć w analogowym stylu.
+                </p>
+
+                <p class="memories__text">
+                  Prosimy, pobierzcie aplikację wcześniej, kod dołączenia
+                  udostępnimy przed ślubem.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: MORE INFORMATION -->
+        <section
+          id="s-info"
+          class="section section--info"
+          aria-label="More information"
+        >
+          <div class="container info">
+            <h2 class="info__title">Dodatkowe<br />informacje</h2>
+
+            <!-- Gift -->
+            <div class="info__block">
+              <h3 class="info__subtitle">PREZENT</h3>
+              <p class="info__text">
+                Jeśli myślicie o prezencie, będziemy bardzo wdzięczni za
+                wsparcie w realizacji naszego marzenia o pierwszym wspólnym
+                domu.
+              </p>
+            </div>
+
+            <!-- Note -->
+            <div class="info__block">
+              <h3 class="info__subtitle">WSKAZÓWKA</h3>
+              <p class="info__text">
+                Część uroczystości odbędzie się na terenie leśnym, dlatego
+                cienkie obcasy mogą nie być najlepszym wyborem, szczególnie że
+                planujemy tańczyć do rana!
+              </p>
+            </div>
+
+            <!-- Toast -->
+            <div class="info__block">
+              <h3 class="info__subtitle">TOASTY</h3>
+              <p class="info__text">
+                Toasty są białoruską tradycją weselną. Nie ma żadnego obowiązku,
+                ale jeśli będziecie chcieli powiedzieć kilka słów, będzie nam
+                bardzo miło.
+              </p>
+              <p class="info__text">Wystarczy zgłosić się do prowadzącego.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: RSVP + CONTACT -->
+        <section
+          id="s-rsvp-contact"
+          class="section section--rsvp-contact"
+          aria-label="RSVP and contact"
+        >
+          <!-- RSVP block -->
+          <div class="rsvp">
+            <div class="container rsvp__inner">
+              <h2 class="rsvp__title">RSVP</h2>
+
+              <p class="rsvp__text">
+                Prosimy o potwierdzenie obecności do
+                <span class="rsvp__em">20 kwietnia</span>, abyśmy mogli być
+                pewni, że będziemy świętować ten dzień razem z Wami.
+              </p>
+
+              <!-- Link placeholder for now -->
+              <a
+                class="rsvp__btn"
+                href="https://forms.gle/fbHBTNTv2u7xut4V7"
+                role="button"
+                aria-label="RSVP form link"
+                target="_blank"
+              >
+                RSVP HERE
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact block -->
+          <div class="contact">
+            <div class="contact__frame">
+              <div class="contact__bg" aria-hidden="true"></div>
+
+              <div class="container contact__inner">
+                <h2 class="contact__title">Kontakt</h2>
+
+                <div class="contact__grid">
+                  <div class="contact__col">
+                    <div class="contact__role">PANNA MŁODA – ANASTASIYA</div>
+                    <div class="contact__line">Tel: +48 537 133 949</div>
+                    <a
+                      class="contact__line contact__link"
+                      href="mailto:anastasiya.puhach@gmail.com"
+                    >
+                      anastasiya.puhach@gmail.com
+                    </a>
+                  </div>
+
+                  <div class="contact__col contact__col--right">
+                    <div class="contact__role">PAN MŁODY – MATEUSZ</div>
+                    <div class="contact__line">Tel: +48 530 002 481</div>
+                    <a
+                      class="contact__line contact__link"
+                      href="mailto:mateusz_michalec@hotmail.com"
+                    >
+                      mateusz_michalec@hotmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom green band -->
+          <div class="rsvp-contact__footer" aria-label="Copyright">
+            © Anastasiya &amp; Mateusz 2026
+          </div>
+        </section>
       </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </body>
 </html>

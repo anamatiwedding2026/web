@@ -1081,3 +1081,53 @@ a {
     margin-top: 30px;
   }
 }
+
+html[lang="pl"] .schedule__title {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "plan . ."
+    ". of ."
+    ". . day";
+
+  row-gap: 0;
+  column-gap: 0;
+
+  justify-self: stretch;
+  width: 100%;
+  line-height: 0.7;
+}
+
+/* Remove EN-specific layout behavior */
+html[lang="pl"] .schedule__title-main:first-child {
+  display: inline;
+}
+
+/* Grid placement */
+html[lang="pl"] .schedule__title-main:first-child {
+  grid-area: plan;
+  justify-self: end;
+}
+
+html[lang="pl"] .schedule__title-of {
+  margin: 0;
+  grid-area: of;
+  justify-self: center;
+}
+
+html[lang="pl"] .schedule__title-main:last-child {
+  grid-area: day;
+  justify-self: start;
+}
+
+/* Prevent wrapping */
+html[lang="pl"] .schedule__title-main,
+html[lang="pl"] .schedule__title-of {
+  white-space: nowrap;
+}
+
+/* PL only — Memories title smaller on small screens */
+html[lang="pl"] .memories__title {
+  font-size: clamp(44px, 9.5vw, 74px);
+}
