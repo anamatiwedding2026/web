@@ -125,7 +125,7 @@ a {
 
 @media (min-width: 768px) {
   :root {
-    --container-max: 720px;
+    --container-max: min(92vw, 860px);
   }
 }
 
@@ -318,18 +318,18 @@ a {
 }
 
 .hero__date {
-  font-family: var(--font-display); /* Playfair Display */
-  font-size: clamp(20px, 4.2vw, 24px);
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3.2vw, 30px);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   opacity: 0.95;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .hero__rsvp {
   display: inline-block;
 
-  padding: 2px 20px;
+  padding: clamp(4px, 0.8vw, 8px) clamp(20px, 2vw, 34px);
 
   border: 1.5px solid rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.95);
@@ -338,7 +338,7 @@ a {
 
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 30px;
+  font-size: clamp(30px, 4.5vw, 44px);
   text-transform: uppercase;
   cursor: pointer;
 }
