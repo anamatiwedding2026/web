@@ -116,8 +116,6 @@ a {
 
   --shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 
-  --hero-cta-shift: clamp(10px, 6vw, 56px);
-
   --hero-cta-safe: 300px; /* reserved space so title never overlaps CTA */
 
   --font-serif: "AnticDidone", ui-serif, Georgia, serif;
@@ -308,13 +306,15 @@ a {
   position: absolute;
   z-index: 1;
 
-  /* off-center like the mockup */
-  left: calc(var(--px) + var(--hero-cta-shift));
+  /* align with locale padding */
+  left: var(--px);
 
-  /* stable vertical anchor */
-  bottom: clamp(160px, 30vh, 340px);
+  /* always below center */
+  top: 63%;
 
-  text-align: left;
+  transform: translateY(0);
+
+  text-align: center;
 }
 
 .hero__date {
@@ -323,13 +323,13 @@ a {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   opacity: 0.95;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .hero__rsvp {
   display: inline-block;
 
-  padding: 8px 30px;
+  padding: 2px 10px;
 
   border: 1.5px solid rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.95);
