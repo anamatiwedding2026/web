@@ -329,7 +329,7 @@ a {
 .hero__rsvp {
   display: inline-block;
 
-  padding: 2px 10px;
+  padding: 2px 20px;
 
   border: 1.5px solid rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.95);
@@ -339,7 +339,6 @@ a {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 30px;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
 }
