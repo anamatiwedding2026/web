@@ -49,6 +49,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Azbuka03";
+  src: url("../assets/fonts/Azbuka03_D.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =========================
    Base / Reset
    ========================= */
@@ -111,7 +119,7 @@ a {
   --peach: #efe9e2;
   --ink: #2f4a3d;
 
-  --container-max: 520px;
+  --container-max: 640px;
   --px: clamp(24px, 5.5vw, 44px);
 
   --shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
@@ -1130,4 +1138,69 @@ html[lang="pl"] .schedule__title-of {
 /* PL only — Memories title smaller on small screens */
 html[lang="pl"] .memories__title {
   font-size: clamp(44px, 9.5vw, 74px);
+}
+
+/* RU only — hero title, slightly bigger but still contained */
+html[lang="ru"] .hero__title {
+  font-family: var(--font-display); /* Playfair Display */
+  font-size: clamp(38px, 13vw, 76px);
+}
+
+html[lang="ru"] .hero__amp {
+  font-family: var(--font-serif); /* Antic Didone */
+  font-size: clamp(42px, 10vw, 76px);
+}
+
+html[lang="ru"] .schedule__title-of {
+  font-family: "Azbuka03", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.82em;
+}
+
+html[lang="ru"] .schedule__title {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "plan . ."
+    ". of ."
+    ". . day";
+
+  row-gap: 0;
+  column-gap: 0;
+
+  justify-self: stretch;
+  width: 100%;
+  line-height: 0.7;
+  font-size: clamp(42px, 8.8vw, 74px);
+  letter-spacing: 0.01em;
+}
+
+/* Remove EN-specific layout behavior */
+html[lang="ru"] .schedule__title-main:first-child {
+  display: inline;
+}
+
+/* Grid placement */
+html[lang="ru"] .schedule__title-main:first-child {
+  grid-area: plan;
+  justify-self: end;
+}
+
+html[lang="ru"] .schedule__title-of {
+  margin: 0;
+  grid-area: of;
+  justify-self: center;
+}
+
+html[lang="ru"] .schedule__title-main:last-child {
+  grid-area: day;
+  justify-self: start;
+}
+
+/* Prevent wrapping */
+html[lang="ru"] .schedule__title-main,
+html[lang="ru"] .schedule__title-of {
+  white-space: nowrap;
 }
