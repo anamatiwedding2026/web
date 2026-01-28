@@ -1144,6 +1144,7 @@ html[lang="pl"] .memories__title {
 html[lang="ru"] .hero__title {
   font-family: var(--font-display); /* Playfair Display */
   font-size: clamp(38px, 13vw, 76px);
+  letter-spacing: 0.1em;
 }
 
 html[lang="ru"] .hero__amp {
